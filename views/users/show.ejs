@@ -1,0 +1,77 @@
+<% include ../partials/header %>
+<div class="row">
+    <div class="col-xs-4">
+       <h1><%=user.name%></h1>
+        <div class="thumbnail">
+            <img src="<%=user.avatar%>">
+            <div class="caption"><a href="mailto:<%=user.email%>"><%=user.email%></a></div>
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Job:</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+    <div class="col-xs-8">
+        <p>info</p>
+        <p>info</p>
+        <p>info</p>
+    </div>
+</div>
+        <div class="container jobList">
+    <h3><%=user.name%>'s current jobs</h3>
+  <% var count = 0; %>
+  <% for(var i= jobs.length-1; i>=0; i--) { %>
+  <% count++ %>
+  <div class="job-container">
+    <div class="row">
+      <div class="col-xs-6 pull-left">
+        <span class="pull-left"><em><%=count%>.</em></span>
+        <p><strong>Requester:</strong>
+          <a href="/users/<%=jobs[i].requester.id%>"><%=jobs[i].requester.name %></a>
+        </p>
+      </div>
+      <div class="col-xs-2 pull-left">
+        <p><strong>C/M#: </strong>614424. 000001</p> 
+      </div>
+      <div class="col-xs-4 pull-right">
+        <p><em>Submitted: <%=moment(jobs[i].createdAt).utcOffset(-4).format("dddd h:mm a")%></em></p> 
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="pull-right row-labels">
+          <p><strong>Job:</strong> </p>
+          <p><strong>Time:</strong> </p>
+          <p><strong>Location:</strong> </p>
+          <p><strong>Addional Instructions:</strong> </p>
+      
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="pull-left row-info">
+          <p><%=jobs[i].job%></p>
+          <p><%=jobs[i].time%></p>
+          <p><%=jobs[i].loc%></p>
+          <p><%=jobs[i].additionalComments%></p>
+        </div>
+      </div>
+      <div class="pull-right">
+        <div class="col-xs-12">
+        <a href='/jobs/<%= jobs[i]._id %>'>More Info</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>
+
+
+
+
+<% include ../partials/footer %>

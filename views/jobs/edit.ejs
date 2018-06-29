@@ -1,0 +1,51 @@
+<% include ../partials/header %>
+
+<h1>Edit Job</h1>
+<div class="job-container">
+    <div class="row">
+      <div class="col-xs-6 pull-left">
+        <span class="pull-left"><em>.</em></span>
+        <p><strong>Requester:</strong> <%= job.requester.name %></p>
+      </div>
+      <div class="col-xs-2 pull-left">
+        <p><strong>C/M#: </strong>614424. 000001</p> 
+      </div>
+      <div class="col-xs-4 pull-right">
+        <p><em>Submitted: <%=moment(job.createdAt).format("dddd LT")%></em></p> 
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="pull-right row-labels">
+          <p><strong>Job:</strong> </p>
+          <p><strong>Time:</strong> </p>
+          <p><strong>Location:</strong> </p>
+          <p><strong>Addional Instructions:</strong> </p>
+      
+        </div>
+      </div>
+      <form action="/jobs/<%=job._id%>?_method=PUT" method="POST">
+      <div class="col-xs-6">
+        <div class="row-info">
+          <input type="text" class="" name="job[job]" value="<%=job.job%>"></input><br>
+          <input type="text" class="" name="job[time]" value="<%=job.time%>"></input><br>
+          <input type="text" class="" name="job[loc]" value="<%=job.loc%>"></input><br>
+          <textarea id="additionalComments" class="" name="job[additionalComments]" style="width:100%; max-width:100%" rows="5"><%=job.additionalComments%></textarea><br>
+        </div>
+      </div>
+    </div>
+</div>
+
+<button id="submit" class="btn btn-primary">Submit Changes</button>
+ </form>
+    <div class="pull-left">
+        <div class="col-xs-12">
+            <a href='/jobs/<%=job._id%>'>Go back</a>
+        </div>       
+    </div>
+    
+    
+        
+
+<% include ../partials/footer %>
