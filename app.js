@@ -14,8 +14,9 @@ var jobRoutes = require("./routes/jobs"),
     userRoutes = require("./routes/users");
 
 
-var url = "mongodb://tucker:1chapstick@ds121341.mlab.com:21341/jobtracker"
-mongoose.connect(process.env.DATABASEURL);
+var url = process.env.DATABASEURL || "mongodb://localhost/jobtracker";
+mongoose.connect(url);
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + "/public"));
