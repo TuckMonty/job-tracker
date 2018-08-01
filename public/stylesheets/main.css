@@ -107,3 +107,8 @@ input, textarea {
   border-radius:3px;
   padding-left:3px;
 }
+
+.thumbnail {
+  max-width: 30%;
+  margin:0 auto;
+}
